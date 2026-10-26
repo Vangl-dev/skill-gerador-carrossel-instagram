@@ -1,0 +1,11 @@
+{
+  "name": "instagram-render",
+  "private": true,
+  "description": "Gera HTML editável e PNG de posts de Instagram a partir de campaign-data.json",
+  "scripts": {
+    "render": "node scripts/render.js"
+  },
+  "dependencies": {
+    "playwright": "^1.62.0"
+  }
+}

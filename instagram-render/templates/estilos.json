@@ -1,0 +1,293 @@
+{
+  "_sobre": "Catálogo da tela de escolha (scripts/escolher-estilo.js). Cada paleta usa os papéis que o render entende; cada par de fontes precisa existir no Google Fonts com os pesos 400 a 700. Fontes de título com um peso só levam \"peso_titulo\": 400.",
+  "paletas": [
+    {
+      "id": "petroleo-linho",
+      "nome": "Petróleo e linho",
+      "descricao": "Verde-azulado profundo com papel quente. Sóbrio e menos frio que o cinza.",
+      "cores": [
+        {
+          "papel": "primaria",
+          "hex": "#143C40"
+        },
+        {
+          "papel": "fundo_escuro",
+          "hex": "#143C40"
+        },
+        {
+          "papel": "fundo",
+          "hex": "#F2EDE4"
+        },
+        {
+          "papel": "secundaria",
+          "hex": "#2F6F6A"
+        },
+        {
+          "papel": "destaque",
+          "hex": "#8FC1B9"
+        },
+        {
+          "papel": "texto_escuro",
+          "hex": "#15292B"
+        },
+        {
+          "papel": "texto_claro",
+          "hex": "#F7F4EE"
+        },
+        {
+          "papel": "texto_suave",
+          "hex": "#4F5F5E"
+        }
+      ]
+    },
+    {
+      "id": "oliva-papel",
+      "nome": "Oliva e papel",
+      "descricao": "Verde oliva escuro e papel cru. Natural, discreto, nada corporativo.",
+      "cores": [
+        {
+          "papel": "primaria",
+          "hex": "#27322A"
+        },
+        {
+          "papel": "fundo_escuro",
+          "hex": "#27322A"
+        },
+        {
+          "papel": "fundo",
+          "hex": "#F1EEE5"
+        },
+        {
+          "papel": "secundaria",
+          "hex": "#5B6B45"
+        },
+        {
+          "papel": "destaque",
+          "hex": "#B8C59A"
+        },
+        {
+          "papel": "texto_escuro",
+          "hex": "#1F2620"
+        },
+        {
+          "papel": "texto_claro",
+          "hex": "#F6F4EC"
+        },
+        {
+          "papel": "texto_suave",
+          "hex": "#59604F"
+        }
+      ]
+    },
+    {
+      "id": "azul-tinta",
+      "nome": "Azul tinta",
+      "descricao": "Azul de caneta-tinteiro com branco acinzentado. Clássico de documento, sem dourado.",
+      "cores": [
+        {
+          "papel": "primaria",
+          "hex": "#1B2B45"
+        },
+        {
+          "papel": "fundo_escuro",
+          "hex": "#1B2B45"
+        },
+        {
+          "papel": "fundo",
+          "hex": "#EEF0F3"
+        },
+        {
+          "papel": "secundaria",
+          "hex": "#33598A"
+        },
+        {
+          "papel": "destaque",
+          "hex": "#A9C0E0"
+        },
+        {
+          "papel": "texto_escuro",
+          "hex": "#121C2E"
+        },
+        {
+          "papel": "texto_claro",
+          "hex": "#F5F7FA"
+        },
+        {
+          "papel": "texto_suave",
+          "hex": "#4E5A6B"
+        }
+      ]
+    },
+    {
+      "id": "carvao-ocre",
+      "nome": "Carvão e ocre",
+      "descricao": "Quase preto quente com um ocre terroso como único destaque. Editorial.",
+      "cores": [
+        {
+          "papel": "primaria",
+          "hex": "#23211F"
+        },
+        {
+          "papel": "fundo_escuro",
+          "hex": "#23211F"
+        },
+        {
+          "papel": "fundo",
+          "hex": "#F3EEE6"
+        },
+        {
+          "papel": "secundaria",
+          "hex": "#8A5A22"
+        },
+        {
+          "papel": "destaque",
+          "hex": "#D9A962"
+        },
+        {
+          "papel": "texto_escuro",
+          "hex": "#1E1C1A"
+        },
+        {
+          "papel": "texto_claro",
+          "hex": "#F7F3EC"
+        },
+        {
+          "papel": "texto_suave",
+          "hex": "#5E554B"
+        }
+      ]
+    },
+    {
+      "id": "pedra-areia",
+      "nome": "Pedra e areia",
+      "descricao": "Neutros quentes, perto do atual, mas com cara de papel e não de tela.",
+      "cores": [
+        {
+          "papel": "primaria",
+          "hex": "#3A3632"
+        },
+        {
+          "papel": "fundo_escuro",
+          "hex": "#3A3632"
+        },
+        {
+          "papel": "fundo",
+          "hex": "#EDE8E0"
+        },
+        {
+          "papel": "secundaria",
+          "hex": "#7A6A58"
+        },
+        {
+          "papel": "destaque",
+          "hex": "#CDBBA4"
+        },
+        {
+          "papel": "texto_escuro",
+          "hex": "#2A2622"
+        },
+        {
+          "papel": "texto_claro",
+          "hex": "#F8F5F0"
+        },
+        {
+          "papel": "texto_suave",
+          "hex": "#5C534B"
+        }
+      ]
+    }
+  ],
+  "fontes": [
+    {
+      "id": "cormorant-figtree",
+      "nome": "Cormorant + Figtree",
+      "descricao": "Serifa fina e alta, clássica. A mais elegante.",
+      "titulos": "Cormorant Garamond",
+      "corpo": "Figtree"
+    },
+    {
+      "id": "bodoni-jost",
+      "nome": "Bodoni Moda + Jost",
+      "descricao": "Alto contraste de capa de revista, com corpo geométrico.",
+      "titulos": "Bodoni Moda",
+      "corpo": "Jost"
+    },
+    {
+      "id": "oswald-source",
+      "nome": "Oswald + Source Sans",
+      "descricao": "Condensada e forte, de manchete de jornal. Muito impacto no feed.",
+      "titulos": "Oswald",
+      "corpo": "Source Sans 3"
+    },
+    {
+      "id": "zilla-archivo",
+      "nome": "Zilla Slab + Archivo",
+      "descricao": "Serifa quadrada, cara de documento datilografado.",
+      "titulos": "Zilla Slab",
+      "corpo": "Archivo"
+    },
+    {
+      "id": "space-instrument",
+      "nome": "Space Grotesk + Instrument Sans",
+      "descricao": "Grotesca técnica e contemporânea, sem serifa nenhuma.",
+      "titulos": "Space Grotesk",
+      "corpo": "Instrument Sans"
+    },
+    {
+      "id": "fraunces-work",
+      "nome": "Fraunces + Work Sans",
+      "descricao": "Serifa macia e calorosa. Próxima, sem perder a seriedade.",
+      "titulos": "Fraunces",
+      "corpo": "Work Sans"
+    },
+    {
+      "id": "bricolage-epilogue",
+      "nome": "Bricolage + Epilogue",
+      "descricao": "Grotesca com personalidade, moderna e pouco comum.",
+      "titulos": "Bricolage Grotesque",
+      "corpo": "Epilogue"
+    },
+    {
+      "id": "dmserif-sora",
+      "nome": "DM Serif Display + Sora",
+      "descricao": "Serifa robusta de título com corpo geométrico limpo.",
+      "titulos": "DM Serif Display",
+      "corpo": "Sora",
+      "peso_titulo": 400
+    }
+  ],
+  "fundos": [
+    {
+      "id": "texturas",
+      "nome": "Texturas",
+      "descricao": "Ondas, anéis, pontos e formas, alternando entre as páginas (o atual)."
+    },
+    {
+      "id": "liso",
+      "nome": "Liso",
+      "descricao": "Só a cor da paleta. O texto fica em primeiro plano."
+    },
+    {
+      "id": "foto-capa",
+      "nome": "Foto nas capas",
+      "descricao": "Foto em transparência, tingida com a cor da paleta, na capa de cada carrossel. Páginas internas lisas."
+    },
+    {
+      "id": "desenho",
+      "nome": "Desenho",
+      "descricao": "Ilustração de traço fino em transparência (casa, chave, documento, planta), uma por carrossel."
+    }
+  ],
+  "alinhamentos": [
+    {
+      "id": "esquerda",
+      "nome": "À esquerda",
+      "descricao": "Texto alinhado à esquerda, como em revista."
+    },
+    {
+      "id": "centro",
+      "nome": "Centralizado",
+      "descricao": "Título, barra e texto centralizados."
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "projeto": "Escritório Exemplo",
+  "assunto": "Inventário sem mistério",
+  "identidade_utilizada": true,
+  "paleta_oficial": [
+    {
+      "papel": "primaria",
+      "hex": "#1E3A34"
+    },
+    {
+      "papel": "secundaria",
+      "hex": "#C08A4B"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "tipo": "carrossel",
+      "tipo_conteudo": "mito ou verdade",
+      "conteudo": {
+        "categoria": "Inventário",
+        "titulo_capa": "Inventário:\n**mito ou verdade?**",
+        "subtitulo_capa": "Três dúvidas que quase toda família tem.",
+        "slides": [
+          {
+            "titulo": "Mito: todo inventário passa pelo juiz.",
+            "texto": "Quando todos os herdeiros são maiores, capazes e estão de acordo, o inventário pode ser feito em cartório, por escritura pública, com acompanhamento de advogado."
+          },
+          {
+            "titulo": "Verdade: existe prazo para começar.",
+            "texto": "O inventário deve ser aberto em até dois meses após o falecimento. A demora pode gerar multa sobre o imposto, conforme a lei de cada estado."
+          },
+          {
+            "titulo": "Mito: sem bens, não há o que fazer.",
+            "texto": "Mesmo sem patrimônio, pode ser necessário o inventário negativo, por exemplo para comprovar que não há bens nem dívidas a partilhar."
+          },
+          {
+            "titulo": "Cada família tem uma história.",
+            "texto": "As regras gerais ajudam a entender o caminho, mas cada situação tem particularidades."
+          }
+        ],
+        "titulos_alternativos": [
+          "3 dúvidas sobre inventário",
+          "O que é verdade sobre inventário?"
+        ],
+        "legenda": "Inventário costuma vir cercado de dúvidas, justamente num momento difícil.\n\nNeste carrossel, separamos três ideias comuns e o que a lei realmente diz sobre elas.\n\nSalve para consultar quando precisar.",
+        "hashtags": [
+          "#Inventario",
+          "#InventarioExtrajudicial",
+          "#DireitoDasSucessoes",
+          "#Heranca",
+          "#PlanejamentoSucessorio"
+        ],
+        "cta": null
+      },
+      "direcao_visual": {
+        "paleta": {
+          "origem": "oficial",
+          "justificativa": null,
+          "cores": [
+            {
+              "papel": "primaria",
+              "hex": "#1E3A34"
+            },
+            {
+              "papel": "secundaria",
+              "hex": "#C08A4B"
+            },
+            {
+              "papel": "fundo",
+              "hex": "#F5F1E8"
+            },
+            {
+              "papel": "texto",
+              "hex": "#1E3A34"
+            }
+          ]
+        },
+        "tipografia": {
+          "origem": "oficial",
+          "titulos": "Lora",
+          "corpo": "Inter"
+        },
+        "fundo": {
+          "banco": "aneis",
+          "descricao": null
+        },
+        "tema": null,
+        "elementos_graficos": [
+          "anéis sutis no canto"
+        ],
+        "composicao": "título grande, texto de apoio abaixo",
+        "atmosfera": [
+          "acolhedor",
+          "sóbrio"
+        ],
+        "restricoes_aplicadas": [
+          "sem balança e martelo"
+        ],
+        "conflito_restricao": null,
+        "requer_revisao": false
+      }
+    },
+    {
+      "id": 2,
+      "tipo": "avulso",
+      "tipo_conteudo": "número em destaque",
+      "conteudo": {
+        "categoria": "Inventário",
+        "titulo": "**2 meses**",
+        "texto": "É o prazo para abrir o inventário depois do falecimento.",
+        "titulos_alternativos": [
+          "Inventário tem prazo",
+          "Você sabia que o inventário tem prazo?"
+        ],
+        "legenda": "Muita gente não sabe, mas a lei fixa um prazo para abrir o inventário.\n\nSaber disso com antecedência evita surpresas com multa sobre o imposto.",
+        "hashtags": [
+          "#Inventario",
+          "#PrazoInventario",
+          "#DireitoDasSucessoes",
+          "#Heranca",
+          "#ITCMD"
+        ],
+        "cta": null
+      },
+      "direcao_visual": {
+        "paleta": {
+          "origem": "oficial",
+          "justificativa": null,
+          "cores": [
+            {
+              "papel": "primaria",
+              "hex": "#1E3A34"
+            },
+            {
+              "papel": "secundaria",
+              "hex": "#C08A4B"
+            },
+            {
+              "papel": "fundo",
+              "hex": "#1E3A34"
+            },
+            {
+              "papel": "texto",
+              "hex": "#FFFFFF"
+            }
+          ]
+        },
+        "tipografia": {
+          "origem": "oficial",
+          "titulos": "Lora",
+          "corpo": "Inter"
+        },
+        "fundo": {
+          "banco": "dots",
+          "descricao": null
+        },
+        "tema": "escuro",
+        "elementos_graficos": [],
+        "composicao": "número grande centralizado",
+        "atmosfera": [
+          "direto",
+          "sóbrio"
+        ],
+        "restricoes_aplicadas": [],
+        "conflito_restricao": null,
+        "requer_revisao": false
+      }
+    }
+  ]
+}

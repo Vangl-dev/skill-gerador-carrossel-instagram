@@ -1,0 +1,4 @@
+node_modules/
+# saída do render (inclusive ao testar o cliente de exemplo)
+campanhas/
+.DS_Store

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<link href="https://fonts.googleapis.com/css2?{{FONTES_URL}}&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cor-primaria: {{COR_PRIMARIA}};
+  --cor-secundaria: {{COR_SECUNDARIA}};
+  --cor-accent: {{COR_ACCENT}};
+  --cor-fundo-claro: {{COR_FUNDO_CLARO}};
+  --cor-fundo-escuro: {{COR_FUNDO_ESCURO}};
+  --cor-texto-claro: {{COR_TEXTO_CLARO}};
+  --cor-texto-escuro: {{COR_TEXTO_ESCURO}};
+  --cor-titulo: {{COR_TITULO}};
+  --cor-apoio: {{COR_APOIO}};
+  --cor-destaque: {{COR_DESTAQUE}};
+  --cor-barra: {{COR_BARRA}};
+  --cor-textura: {{COR_TEXTURA}};
+  --fonte-titulo: {{FONTE_TITULO}};
+  --fonte-corpo: {{FONTE_CORPO}};
+  --peso-titulo: {{PESO_TITULO}};
+  --foto: {{FOTO_URL}};
+  --logo-filter: {{LOGO_FILTER}};
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #e9e9e9;
+  font-family: var(--fonte-corpo);
+  overflow: auto;
+}
+
+.art {
+  position: relative;
+  width: {{LARGURA}}px;
+  height: {{ALTURA}}px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 88px 80px 72px;
+}
+
+.art[data-tema="escuro"] { background: var(--cor-fundo-escuro); color: var(--cor-texto-claro); }
+.art[data-tema="claro"]  { background: var(--cor-fundo-claro);  color: var(--cor-texto-escuro); }
+
+/* ---------- camada de fundo ---------- */
+
+.fundo { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+
+.textura { position: absolute; inset: -4%; color: var(--cor-textura); }
+
+.foto {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+.foto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--foto);
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) contrast(1.05);
+}
+.foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cor-fundo-escuro);
+  opacity: var(--op-foto, .78);
+}
+.art[data-tema="claro"] .foto::after { background: var(--cor-fundo-claro); }
+
+/* intensidade por posição no carrossel */
+.art[data-papel="capa"]       { --op-textura: .50; --op-foto: .74; }
+.art[data-papel="conteudo"]   { --op-textura: .20; --op-foto: .82; }
+.art[data-papel="fechamento"] { --op-textura: .08; --op-foto: .88; }
+
+.textura { opacity: var(--op-textura, .2); }
+
+/* --- variação 1: ondas (linhas onduladas) --- */
+[data-fundo="ondas"] .textura {
+  background-image: repeating-radial-gradient(
+    ellipse 1600px 900px at 50% 132%,
+    transparent 0 68px,
+    currentColor 68px 70px,
+    transparent 70px 136px
+  );
+}
+
+/* --- variação 2: zigzag --- */
+[data-fundo="zigzag"] .textura {
+  background-image:
+    linear-gradient(135deg, currentColor 25%, transparent 25%),
+    linear-gradient(225deg, currentColor 25%, transparent 25%);
+  background-position: -20px 0, -20px 0;
+  background-size: 40px 40px;
+  opacity: calc(var(--op-textura, .2) * .55);
+}
+/* no fundo claro o zigue-zague disputa com o texto cinza: mais suave */
+.art[data-tema="claro"][data-fundo="zigzag"] .textura { opacity: calc(var(--op-textura, .2) * .28); }
+
+/* --- variação 3: dots --- */
+[data-fundo="dots"] .textura {
+  background-image: radial-gradient(currentColor 2.5px, transparent 3px);
+  background-size: 48px 48px;
+  opacity: calc(var(--op-textura, .2) * .8);
+}
+
+/* --- variação 4: anéis (círculos concêntricos) --- */
+[data-fundo="aneis"] .textura {
+  background-image:
+    repeating-radial-gradient(circle at 80% 16%, transparent 0 86px, currentColor 86px 88px, transparent 88px 174px),
+    repeating-radial-gradient(circle at 10% 90%, transparent 0 66px, currentColor 66px 68px, transparent 68px 134px);
+}
+
+/* --- variação 5: blobs orgânicos --- */
+.textura span { display: none; }
+[data-fundo="blobs"] .textura { background-image: none; opacity: calc(var(--op-textura, .2) * .55); }
+[data-fundo="blobs"] .textura span {
+  display: block;
+  position: absolute;
+  background: currentColor;
+}
+[data-fundo="blobs"] .textura span:nth-child(1) {
+  width: 560px; height: 520px; top: -150px; right: -130px;
+  border-radius: 42% 58% 63% 37% / 47% 39% 61% 53%;
+}
+[data-fundo="blobs"] .textura span:nth-child(2) {
+  width: 430px; height: 470px; bottom: -120px; left: -150px;
+  border-radius: 58% 42% 37% 63% / 41% 62% 38% 59%;
+}
+[data-fundo="blobs"] .textura span:nth-child(3) {
+  width: 260px; height: 250px; bottom: 24%; right: 6%;
+  border-radius: 49% 51% 60% 40% / 55% 45% 55% 45%;
+}
+
+/* --- variação: liso (só a cor) --- */
+[data-fundo="liso"] .textura { display: none; }
+
+/* --- variação: desenho de traço fino em transparência --- */
+.desenho {
+  position: absolute;
+  display: none;
+  color: var(--cor-textura);
+  right: -90px;
+  bottom: -40px;
+  width: 760px;
+  height: 760px;
+  opacity: .2;
+}
+.desenho svg { display: none; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+[data-fundo="desenho"] .textura { display: none; }
+[data-fundo="desenho"] .desenho { display: block; }
+[data-desenho="casa"] .d-casa,
+[data-desenho="chave"] .d-chave,
+[data-desenho="documento"] .d-documento,
+[data-desenho="planta"] .d-planta { display: block; }
+.art[data-papel="conteudo"] .desenho   { width: 560px; height: 560px; opacity: .1; }
+.art[data-papel="fechamento"] .desenho { width: 560px; height: 560px; opacity: .08; }
+
+/* --- variação 6: foto com overlay da cor da marca --- */
+[data-fundo="foto"] .foto { display: block; }
+[data-fundo="foto"] .textura { display: none; }
+
+/* ---------- conteúdo ---------- */
+
+.conteudo {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 64px;
+  padding-bottom: 132px;
+}
+
+.categoria {
+  font: 600 22px/1.2 var(--fonte-corpo);
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--cor-destaque);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+.categoria:empty { display: none; }
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-titulo, 700);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--cor-titulo);
+  max-width: 920px;
+  overflow-wrap: break-word;
+}
+.titulo .destaque { color: var(--cor-destaque); }
+
+.barra {
+  width: 118px;
+  height: 10px;
+  background: var(--cor-barra);
+  margin: 44px 0 40px;
+  flex: 0 0 auto;
+}
+
+.apoio {
+  font-family: var(--fonte-corpo);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--cor-apoio);
+  max-width: 900px;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+
+.cta {
+  margin-top: 40px;
+  padding-left: 26px;
+  border-left: 6px solid var(--cor-barra);
+  font-family: var(--fonte-corpo);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--cor-destaque);
+  max-width: 840px;
+  white-space: pre-line;
+}
+.cta:empty { display: none; }
+
+/* tamanho de texto por volume de conteúdo */
+.art[data-tamanho="curto"]  .titulo { font-size: 96px; }
+.art[data-tamanho="medio"]  .titulo { font-size: 80px; }
+.art[data-tamanho="longo"]  .titulo { font-size: 62px; }
+.art[data-tamanho="curto"]  .apoio  { font-size: 42px; }
+.art[data-tamanho="medio"]  .apoio  { font-size: 38px; }
+.art[data-tamanho="longo"]  .apoio  { font-size: 32px; }
+.art[data-tamanho="curto"]  .cta    { font-size: 30px; }
+.art[data-tamanho="medio"]  .cta    { font-size: 27px; }
+.art[data-tamanho="longo"]  .cta    { font-size: 24px; }
+
+/* ---------- alinhamento centralizado ---------- */
+
+.art[data-alinhamento="centro"] .conteudo { align-items: center; text-align: center; }
+.art[data-alinhamento="centro"] .barra { margin-left: auto; margin-right: auto; }
+.art[data-alinhamento="centro"] .cta { border-left: 0; padding-left: 0; }
+.art[data-alinhamento="centro"] .logo { left: 50%; transform: translateX(-50%); }
+
+/* ---------- logo (canto inferior esquerdo) ---------- */
+
+.logo {
+  position: absolute;
+  left: 80px;
+  bottom: 64px;
+  width: 150px;
+  height: auto;
+  z-index: 3;
+  filter: var(--logo-filter);
+}
+
+/* ---------- selo de revisão (fora do fluxo de exportação) ---------- */
+
+.selo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background: #B3261E;
+  color: #fff;
+  font: 700 20px/1 var(--fonte-corpo);
+  letter-spacing: .18em;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 14px 0;
+}
+.selo:empty { display: none; }
+
+/* ---------- bloco de revisão (fica fora do PNG) ---------- */
+
+.details {
+  width: min({{LARGURA}}px, 100%);
+  margin: 28px auto 56px;
+  padding: 28px;
+  background: #fff;
+  line-height: 1.55;
+}
+.details h2 {
+  margin-top: 0;
+  font-family: var(--fonte-titulo);
+  color: var(--cor-fundo-escuro);
+}
+.details p { white-space: pre-line; color: #475569; }
+
+@media (max-width: {{LARGURA}}px) {
+  .art {
+    transform-origin: top left;
+    transform: scale(calc(100vw / {{LARGURA}}));
+    margin-bottom: calc({{ALTURA}}px * (100vw / {{LARGURA}} - 1));
+  }
+}
+</style>
+</head>
+<body>
+<main class="art" data-tema="{{TEMA}}" data-fundo="{{FUNDO}}" data-papel="{{PAPEL}}" data-tamanho="{{TAMANHO}}" data-alinhamento="{{ALINHAMENTO}}" data-desenho="{{DESENHO}}">
+  <div class="selo">{{SELO}}</div>
+  <div class="fundo" aria-hidden="true">
+    <div class="textura"><span></span><span></span><span></span></div>
+    <div class="foto"></div>
+    <div class="desenho">
+      <svg class="d-casa" viewBox="0 0 600 600"><path d="M40 540H560"/><path d="M120 540V280H480V540"/><path d="M90 300L300 120L510 300"/><path d="M400 206V140H440V240"/><rect x="265" y="400" width="70" height="140"/><circle cx="321" cy="472" r="4"/><rect x="160" y="330" width="80" height="80"/><path d="M200 330V410M160 370H240"/><rect x="360" y="330" width="80" height="80"/><path d="M400 330V410M360 370H440"/><circle cx="300" cy="232" r="26"/><path d="M300 206V258M274 232H326"/><path d="M240 540V528H360V540"/></svg>
+      <svg class="d-chave" viewBox="0 0 600 600"><circle cx="170" cy="300" r="100"/><circle cx="170" cy="300" r="78"/><circle cx="170" cy="300" r="32"/><path d="M270 284H522Q546 300 522 316H270"/><path d="M440 316V368H472V316M492 316V350H512V316"/><path d="M330 284V316M350 284V316"/></svg>
+      <svg class="d-documento" viewBox="0 0 600 600"><path d="M170 80H380L450 150V520H170Z"/><path d="M380 80V150H450"/><path d="M210 200H410M210 240H410M210 280H410M210 320H360"/><path d="M210 440Q230 410 250 440T290 440T330 440"/><path d="M210 462H340"/><circle cx="392" cy="436" r="40"/><circle cx="392" cy="436" r="28"/></svg>
+      <svg class="d-planta" viewBox="0 0 600 600"><rect x="90" y="110" width="420" height="380"/><rect x="102" y="122" width="396" height="356"/><path d="M300 122V250M300 290V478"/><path d="M102 300H200M240 300H300"/><path d="M400 300V478M300 360H400"/><path d="M200 300V262A38 38 0 0 1 238 300"/><path d="M300 250H338A38 38 0 0 1 300 288"/><path d="M160 104H240M360 104H440"/><path d="M90 530H510M90 520V540M510 520V540"/></svg>
+    </div>
+  </div>
+  <div class="conteudo">
+    <p class="categoria">{{CATEGORY}}</p>
+    <h1 class="titulo">{{TITLE}}</h1>
+    <div class="barra"></div>
+    <p class="apoio">{{DESCRIPTION}}</p>
+    <p class="cta">{{CTA}}</p>
+  </div>
+  {{LOGO}}
+</main>
+<section class="details">
+  <h2>Legenda Instagram</h2>
+  <p>{{CAPTION}}</p>
+  <h2>Hashtags</h2>
+  <p>{{HASHTAGS_TEXT}}</p>
+</section>
+</body>
+</html>
